@@ -10,7 +10,9 @@ import {
   findWordsByWordAndOecRank,
   findWordsByWordAndPos,
   readWords,
-} from '../reader.js';
+} from '../utils/reader.js';
+
+import { logger } from '../utils/logger.js';
 
 const router = express.Router();
 
@@ -18,12 +20,17 @@ router.get('/', (req, res) => {
   res.status(200).json({
     message: '✅ API is running! ',
   });
+  logger.info('✅ API is running! ');
 });
 
 router.get('/find/all', (req, res) => {
   const words = readWords();
   res.status(200).json({
     words,
+  });
+  logger.log({
+    level: 'info',
+    message: '✅ Words found!',
   });
 });
 
@@ -41,6 +48,11 @@ router.post('/find/word', async (req, res) => {
       wordDetails,
     });
   }
+  logger.log({
+    level: 'info',
+    message: 'Route /find/word',
+    searchedFor: word,
+  });
 });
 
 router.post('/find/pos', async (req, res) => {
@@ -57,6 +69,11 @@ router.post('/find/pos', async (req, res) => {
       wordDetails,
     });
   }
+  logger.log({
+    level: 'info',
+    message: 'Route /find/pos',
+    searchedFor: pos,
+  });
 });
 
 router.post('/find/oecRank', async (req, res) => {
@@ -73,6 +90,11 @@ router.post('/find/oecRank', async (req, res) => {
       wordDetails,
     });
   }
+  logger.log({
+    level: 'info',
+    message: 'Route /find/oecRank',
+    searchedFor: oecRank,
+  });
 });
 
 router.post('/find/cocaRank', async (req, res) => {
@@ -89,6 +111,12 @@ router.post('/find/cocaRank', async (req, res) => {
       wordDetails,
     });
   }
+
+  logger.log({
+    level: 'info',
+    message: 'Route /find/cocaRank',
+    searchedFor: cocaRank,
+  });
 });
 
 router.post('/find/dolchLevel', async (req, res) => {
@@ -105,6 +133,12 @@ router.post('/find/dolchLevel', async (req, res) => {
       wordDetails,
     });
   }
+
+  logger.log({
+    level: 'info',
+    message: 'Route /find/dolchLevel',
+    searchedFor: dolchLevel,
+  });
 });
 
 router.post('/find/polysemy', async (req, res) => {
@@ -121,6 +155,12 @@ router.post('/find/polysemy', async (req, res) => {
       wordDetails,
     });
   }
+
+  logger.log({
+    level: 'info',
+    message: 'Route /find/polysemy',
+    searchedFor: polysemy,
+  });
 });
 
 router.post('/find/wordAndPos', async (req, res) => {
@@ -137,6 +177,13 @@ router.post('/find/wordAndPos', async (req, res) => {
       wordDetails,
     });
   }
+
+  logger.log({
+    level: 'info',
+    message: 'Route /find/wordAndPos',
+    searchedFor: word,
+    searchedFor: pos,
+  });
 });
 
 router.post('/find/wordAndOecRank', async (req, res) => {
@@ -153,6 +200,13 @@ router.post('/find/wordAndOecRank', async (req, res) => {
       wordDetails,
     });
   }
+
+  logger.log({
+    level: 'info',
+    message: 'Route /find/wordAndOecRank',
+    searchedFor: word,
+    searchedFor: oecRank,
+  });
 });
 
 router.post('/find/wordAndCocaRank', async (req, res) => {
@@ -169,6 +223,13 @@ router.post('/find/wordAndCocaRank', async (req, res) => {
       wordDetails,
     });
   }
+
+  logger.log({
+    level: 'info',
+    message: 'Route /find/wordAndCocaRank',
+    searchedFor: word,
+    searchedFor: cocaRank,
+  });
 });
 
 export default router;
