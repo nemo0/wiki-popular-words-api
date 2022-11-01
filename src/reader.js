@@ -1,66 +1,87 @@
 import fs from 'fs';
 // import words from '../words.json';
 
-//  Write a function to read the words.json file in one level up directory
 export const readWords = () => {
   const words = fs.readFileSync('words.json', 'utf-8');
   return JSON.parse(words);
 };
 
-const allWords = readWords();
+const data = readWords();
 
-//  Write a function to find the words in the words.json file
+const { words } = data;
+
 export const findWords = (word) => {
-  const words = allWords;
-  return words.filter((item) => item.word === word);
+  try {
+    return words.filter((item) => item.word === word);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-//  Write a function to find the words in the words.json file
 export const findWordsByPos = (pos) => {
-  const words = allWords;
-  return words.filter((item) => item.pos === pos);
+  try {
+    return words.filter((item) => item.pos === pos);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-//  Write a function to find the words in the words.json file
 export const findWordsByOecRank = (oecRank) => {
-  const words = allWords;
-  return words.filter((item) => item.oecRank === oecRank);
+  try {
+    return words.filter((item) => item.oecRank === oecRank);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-//  Write a function to find the words in the words.json file
 export const findWordsByCocaRank = (cocaRank) => {
-  const words = allWords;
-  return words.filter((item) => item.cocaRank === cocaRank);
+  try {
+    return words.filter((item) => item.cocaRank === cocaRank);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-//  Write a function to find the words in the words.json file
 export const findWordsByDolchLevel = (dolchLevel) => {
-  const words = allWords;
-  return words.filter((item) => item.dolchLevel === dolchLevel);
+  try {
+    return words.filter((item) => item.dolchLevel === dolchLevel);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-//  Write a function to find the words in the words.json file
 export const findWordsByPolysemy = (polysemy) => {
-  const words = allWords;
-  return words.filter((item) => item.polysemy === polysemy);
+  try {
+    return words.filter((item) => item.polysemy === polysemy);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-//  Write a function to find the words in the words.json file
 export const findWordsByWordAndPos = (word, pos) => {
-  const words = allWords;
-  return words.filter((item) => item.word === word && item.pos === pos);
+  try {
+    return words.filter((item) => item.word === word && item.pos === pos);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-//  Write a function to find the words in the words.json file
 export const findWordsByWordAndOecRank = (word, oecRank) => {
-  const words = allWords;
-  return words.filter((item) => item.word === word && item.oecRank === oecRank);
+  try {
+    return words.filter(
+      (item) => item.word === word && item.oecRank === oecRank
+    );
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-//  Write a function to find the words in the words.json file
 export const findWordsByWordAndCocaRank = (word, cocaRank) => {
-  const words = allWords;
-  return words.filter(
-    (item) => item.word === word && item.cocaRank === cocaRank
-  );
+  try {
+    return words.filter(
+      (item) => item.word === word && item.cocaRank === cocaRank
+    );
+  } catch (error) {
+    console.log(error);
+  }
 };

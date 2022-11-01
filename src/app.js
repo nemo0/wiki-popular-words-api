@@ -1,7 +1,12 @@
+// Configure Express
 import express from 'express';
-import dotenv from 'dotenv';
+const app = express();
 
+// Configure Dotenv
+import dotenv from 'dotenv';
 dotenv.config();
+
+import cors from 'cors';
 
 import { wordScraper } from './scraper.js';
 
@@ -9,9 +14,20 @@ import cron from 'node-cron';
 
 import wordRouter from './routes/word.js';
 
-const app = express();
+import swaggerUi from 'swagger-ui-express';
+
+// import swaggerFile from '../swagger_output.json';
+
+import fs from 'fs';
+const swaggerFile = fs.readFileSync('swagger_output.json', 'utf-8');
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+
+// console.log(swaggerFile)
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(JSON.parse(swaggerFile)));
 
 app.get('/', (req, res) => {
   res.status(200).json({
@@ -33,5 +49,6 @@ cron.schedule('0 0 * * *', () => {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}!`);
+  console.log(`App listening on port ${PORT}!`);
+  console.log('Docs available at /docs');
 });
