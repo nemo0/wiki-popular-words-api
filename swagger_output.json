@@ -6,9 +6,19 @@
     "version": "3.0.0"
   },
   "host": [
-    "localhost:5000/api"
+    "wiki-popular-words-api.fly.dev/"
   ],
-  "basePath": "/",
+  "servers": [
+    {
+      "url": "http://localhost:5000/api",
+      "description": "Local server"
+    },
+    {
+      "url": "https://wiki-popular-words-api.fly.dev/api",
+      "description": "Production server"
+    }
+  ],
+  "basePath": "api",
   "schemes": [
     "http"
   ],

@@ -9,8 +9,19 @@ const doc = {
       'API for Wikipedia Most Common English Words (https://en.wikipedia.org/wiki/Most_common_words_in_English)',
     version: '3.0.0',
   },
-  host: ['localhost:5000/api'],
+  host: ['wiki-popular-words-api.fly.dev/'],
+  basePath: 'api',
   schemes: ['http'],
+  servers: [
+    {
+      url: 'http://localhost:5000/api',
+      description: 'Local server',
+    },
+    {
+      url: 'https://wiki-popular-words-api.fly.dev/api',
+      description: 'Production server',
+    },
+  ],
 };
 
 swaggerAutogen(outputFile, endpointsFiles, doc);
