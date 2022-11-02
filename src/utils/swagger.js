@@ -11,7 +11,7 @@ const doc = {
   },
   host: ['wiki-popular-words-api.fly.dev/'],
   basePath: 'api',
-  schemes: ['http'],
+  schemes: ['https'],
   servers: [
     {
       url: 'http://localhost:5000/api',

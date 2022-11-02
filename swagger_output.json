@@ -20,7 +20,7 @@
   ],
   "basePath": "api",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/": {
