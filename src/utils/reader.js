@@ -22,6 +22,7 @@ export const findMultipleWords = (words) => {
   const wordsFound = [];
   try {
     words.forEach((word) => {
+      word = word.toLowerCase();
       if (findWords(word).length > 0) {
         wordsFound.push(findWords(word));
       }
