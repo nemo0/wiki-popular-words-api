@@ -18,6 +18,18 @@ export const findWords = (word) => {
   }
 };
 
+export const findMultipleWords = (words) => {
+  const wordsFound = [];
+  try {
+    words.forEach((word) => {
+      wordsFound.push(findWords(word));
+    });
+    return wordsFound.length > 0 ? wordsFound : [];
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const findWordsByPos = (pos) => {
   try {
     return words.filter((item) => item.pos === pos);

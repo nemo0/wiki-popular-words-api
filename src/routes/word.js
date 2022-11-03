@@ -1,6 +1,7 @@
 import express from 'express';
 import {
   findWords,
+  findMultipleWords,
   findWordsByCocaRank,
   findWordsByDolchLevel,
   findWordsByOecRank,
@@ -52,6 +53,27 @@ router.post('/find/word', async (req, res) => {
     level: 'info',
     message: 'Route /find/word',
     searchedFor: word,
+  });
+});
+
+router.post('/find/words', async (req, res) => {
+  const { words } = req.body;
+  const wordDetails = findMultipleWords(words);
+
+  if (wordDetails.length === 0) {
+    res.status(404).json({
+      message: '❌ Word not found!',
+    });
+  } else {
+    res.status(200).json({
+      message: '✅ Word found!',
+      wordDetails,
+    });
+  }
+  logger.log({
+    level: 'info',
+    message: 'Route /find/word',
+    searchedFor: words,
   });
 });
 
