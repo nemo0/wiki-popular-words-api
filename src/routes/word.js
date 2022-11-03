@@ -40,7 +40,7 @@ router.post('/find/word', async (req, res) => {
   const wordDetails = findWords(word);
 
   if (wordDetails.length === 0) {
-    res.status(404).json({
+    res.status(204).json({
       message: '❌ Word not found!',
     });
   } else {
@@ -61,7 +61,7 @@ router.post('/find/words', async (req, res) => {
   const wordDetails = findMultipleWords(words);
 
   if (wordDetails.length === 0) {
-    res.status(404).json({
+    res.status(204).json({
       message: '❌ Word not found!',
     });
   } else {
@@ -82,7 +82,7 @@ router.post('/find/pos', async (req, res) => {
   const wordDetails = findWordsByPos(pos);
 
   if (wordDetails.length === 0) {
-    res.status(404).json({
+    res.status(204).json({
       message: '❌ Words not found!',
     });
   } else {
@@ -103,7 +103,7 @@ router.post('/find/oecRank', async (req, res) => {
   const wordDetails = findWordsByOecRank(oecRank);
 
   if (wordDetails.length === 0) {
-    res.status(404).json({
+    res.status(204).json({
       message: '❌ Word not found!',
     });
   } else {
@@ -124,7 +124,7 @@ router.post('/find/cocaRank', async (req, res) => {
   const wordDetails = findWordsByCocaRank(cocaRank);
 
   if (wordDetails.length === 0) {
-    res.status(404).json({
+    res.status(204).json({
       message: '❌ Word not found!',
     });
   } else {
@@ -146,7 +146,7 @@ router.post('/find/dolchLevel', async (req, res) => {
   const wordDetails = findWordsByDolchLevel(dolchLevel);
 
   if (wordDetails.length === 0) {
-    res.status(404).json({
+    res.status(204).json({
       message: '❌ Word not found!',
     });
   } else {
@@ -168,7 +168,7 @@ router.post('/find/polysemy', async (req, res) => {
   const wordDetails = findWordsByPolysemy(polysemy);
 
   if (wordDetails.length === 0) {
-    res.status(404).json({
+    res.status(204).json({
       message: '❌ Word not found!',
     });
   } else {
@@ -190,7 +190,7 @@ router.post('/find/wordAndPos', async (req, res) => {
   const wordDetails = findWordsByWordAndPos(word, pos);
 
   if (wordDetails.length === 0) {
-    res.status(404).json({
+    res.status(204).json({
       message: '❌ Word not found!',
     });
   } else {
@@ -213,7 +213,7 @@ router.post('/find/wordAndOecRank', async (req, res) => {
   const wordDetails = findWordsByWordAndOecRank(word, oecRank);
 
   if (wordDetails.length === 0) {
-    res.status(404).json({
+    res.status(204).json({
       message: '❌ Word not found!',
     });
   } else {
@@ -236,7 +236,7 @@ router.post('/find/wordAndCocaRank', async (req, res) => {
   const wordDetails = findWordsByWordAndCocaRank(word, cocaRank);
 
   if (wordDetails.length === 0) {
-    res.status(404).json({
+    res.status(204).json({
       message: '❌ Word not found!',
     });
   } else {
