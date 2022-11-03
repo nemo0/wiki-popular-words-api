@@ -11,6 +11,7 @@ const data = readWords();
 const { words } = data;
 
 export const findWords = (word) => {
+  word = word.toLowerCase();
   try {
     return words.filter((item) => item.word === word);
   } catch (error) {
@@ -34,6 +35,7 @@ export const findMultipleWords = (words) => {
 };
 
 export const findWordsByPos = (pos) => {
+  pos = pos.toLowerCase();
   try {
     return words.filter((item) => item.pos === pos);
   } catch (error) {
@@ -42,6 +44,7 @@ export const findWordsByPos = (pos) => {
 };
 
 export const findWordsByOecRank = (oecRank) => {
+  oecRank = oecRank.toLowerCase();
   try {
     return words.filter((item) => item.oecRank === oecRank);
   } catch (error) {
@@ -50,6 +53,7 @@ export const findWordsByOecRank = (oecRank) => {
 };
 
 export const findWordsByCocaRank = (cocaRank) => {
+  cocaRank = cocaRank.toLowerCase();
   try {
     return words.filter((item) => item.cocaRank === cocaRank);
   } catch (error) {
@@ -58,6 +62,7 @@ export const findWordsByCocaRank = (cocaRank) => {
 };
 
 export const findWordsByDolchLevel = (dolchLevel) => {
+  dolchLevel = dolchLevel.toLowerCase();
   try {
     return words.filter((item) => item.dolchLevel === dolchLevel);
   } catch (error) {
@@ -66,6 +71,7 @@ export const findWordsByDolchLevel = (dolchLevel) => {
 };
 
 export const findWordsByPolysemy = (polysemy) => {
+  polysemy = polysemy.toLowerCase();
   try {
     return words.filter((item) => item.polysemy === polysemy);
   } catch (error) {
@@ -74,6 +80,8 @@ export const findWordsByPolysemy = (polysemy) => {
 };
 
 export const findWordsByWordAndPos = (word, pos) => {
+  word = word.toLowerCase();
+  pos = pos.toLowerCase();
   try {
     return words.filter((item) => item.word === word && item.pos === pos);
   } catch (error) {
@@ -82,6 +90,8 @@ export const findWordsByWordAndPos = (word, pos) => {
 };
 
 export const findWordsByWordAndOecRank = (word, oecRank) => {
+  word = word.toLowerCase();
+  oecRank = oecRank.toLowerCase();
   try {
     return words.filter(
       (item) => item.word === word && item.oecRank === oecRank
@@ -92,6 +102,8 @@ export const findWordsByWordAndOecRank = (word, oecRank) => {
 };
 
 export const findWordsByWordAndCocaRank = (word, cocaRank) => {
+  word = word.toLowerCase();
+  cocaRank = cocaRank.toLowerCase();
   try {
     return words.filter(
       (item) => item.word === word && item.cocaRank === cocaRank

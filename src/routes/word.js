@@ -58,6 +58,7 @@ router.post('/find/word', async (req, res) => {
 
 router.post('/find/words', async (req, res) => {
   const { words } = req.body;
+  const wordsArray = words.split(' ');
   const wordDetails = findMultipleWords(words);
 
   if (wordDetails.length === 0) {
