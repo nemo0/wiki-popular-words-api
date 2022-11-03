@@ -22,7 +22,9 @@ export const findMultipleWords = (words) => {
   const wordsFound = [];
   try {
     words.forEach((word) => {
-      wordsFound.push(findWords(word));
+      if (findWords(word).length > 0) {
+        wordsFound.push(findWords(word));
+      }
     });
     return wordsFound.length > 0 ? wordsFound : [];
   } catch (error) {
